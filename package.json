@@ -13,7 +13,8 @@
     "prepare": "husky",
     "precommit": "lint-staged && pnpm lint:fix",
     "prepush": "pnpm lint && pnpm build && pnpm test",
-    "db:seed:generate": "ts-node ./commands/generate-seeder.ts"
+    "db:seed:generate": "ts-node ./commands/generate-seeder.ts",
+    "db:seed": "ts-node ./commands/seed.ts"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
