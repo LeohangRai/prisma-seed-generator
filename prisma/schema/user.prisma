@@ -6,9 +6,9 @@ enum Gender {
 
 model User {
     id     Int     @id @default(autoincrement())
-    uuid   String  @map("_id")
+    uuid   String  @default(uuid()) @map("_id")
     name   String
-    email  String
+    email  String  @unique
     gender Gender?
 
     createdAt DateTime @default(now())

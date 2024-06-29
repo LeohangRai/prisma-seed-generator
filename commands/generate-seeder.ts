@@ -30,6 +30,6 @@ rl.question(
       'utf8',
     );
     writeFileSync(newSeederFilePath, seederBoilerPlate, 'utf-8');
-    console.log('Seeder created at path:', newSeederFilePath);
+    console.info('Seeder created at path:', newSeederFilePath);
   },
 );

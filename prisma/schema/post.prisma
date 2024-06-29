@@ -1,6 +1,6 @@
 model Post {
     id       Int    @id @default(autoincrement())
-    uuid     String @map("_id")
+    uuid     String @default(uuid()) @map("_id")
     authorId Int
     title    String
     content  String
