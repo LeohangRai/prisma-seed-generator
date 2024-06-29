@@ -1,0 +1,22 @@
+enum Gender {
+    MALE
+    FEMALE
+    OTHERS
+}
+
+model User {
+    id     Int     @id @default(autoincrement())
+    uuid   String  @default(uuid()) @map("_id")
+    name   String
+    email  String  @unique
+    gender Gender?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    posts Post[]
+
+    @@index([uuid])
+    @@index([name])
+    @@map("users")
+}

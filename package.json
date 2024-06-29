@@ -8,11 +8,14 @@
     "start": "pnpm build && node dist/index.js",
     "start:dev": "npx nodemon",
     "test": "echo 'Running tests...'",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "lint": "eslint \"{src,prisma,commands,apps,libs,test}/**/*.ts\"",
+    "lint:fix": "eslint \"{src,prisma,commands,apps,libs,test}/**/*.ts\" --fix",
     "prepare": "husky",
     "precommit": "lint-staged && pnpm lint:fix",
-    "prepush": "pnpm lint && pnpm build && pnpm test"
+    "prepush": "pnpm lint && pnpm build && pnpm test",
+    "db:seed:generate": "ts-node ./commands/generate-seeder.ts",
+    "db:seed": "ts-node ./commands/seed.ts",
+    "db:seed:undo": "ts-node ./commands/undo-seed.ts"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
@@ -38,11 +41,13 @@
     "lint-staged": "^15.2.7",
     "nodemon": "^3.1.4",
     "prettier": "^3.3.2",
+    "prisma": "^5.16.1",
     "rimraf": "^5.0.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.2"
   },
   "dependencies": {
+    "@prisma/client": "5.16.1",
     "dotenv": "^16.4.5"
   },
   "config": {
