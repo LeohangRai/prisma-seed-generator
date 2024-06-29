@@ -1,0 +1,16 @@
+model Post {
+    id       Int    @id @default(autoincrement())
+    uuid     String @map("_id")
+    authorId Int
+    title    String
+    content  String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+    @@index([uuid])
+    @@index([title])
+    @@map("posts")
+}
